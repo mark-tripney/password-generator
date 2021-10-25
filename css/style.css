@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.password {
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 1em 0;
+}
+
+.container {
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 6px 0px #a9a9a9;
+}
+
+#main-form {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 1rem;
+}
+
+.length-input {
+  display: flex;
+  column-gap: 2rem;
+}
+
+#lengthNumber {
+  width: 4em;
+}
+
+#generate-btn {
+  width: fit-content;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+
+#generate-btn:hover,
+#generate-btn:focus {
+  background: coral;
+  color: white;
+}
