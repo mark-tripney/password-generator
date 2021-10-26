@@ -19,12 +19,21 @@ body {
   place-items: center;
   min-height: 100vh;
   font-family: var(--ff-body);
+  background-color: #eef2f7;
+}
+
+.password-container {
+  width: 100%;
+}
+
+#password-output:hover {
+  transition: background-color 0.15s ease-in;
+  background-color: #f9f1f1;
 }
 
 #password-output {
   display: grid;
   place-items: center;
-  width: 100%;
   font-family: var(--ff-mono);
   font-size: 1em;
   font-weight: var(--fw-regular);
@@ -34,6 +43,13 @@ body {
   margin: 1em 0;
   word-break: break-all;
   height: 4rem;
+  cursor: pointer;
+}
+
+.copied {
+  transition: background-color 0.25s ease-in-out;
+  background-color: #f9f1f1;
+  border: none;
 }
 
 .container {
@@ -44,10 +60,13 @@ body {
   max-width: 500px;
   min-width: 337px;
   margin: 0 auto;
-  border: 1px solid black;
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 5px 5px 6px 0px #a9a9a9;
+  background-color: #fff;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .heading {

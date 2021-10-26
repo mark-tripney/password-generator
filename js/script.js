@@ -1,3 +1,4 @@
+const passwordContainer = document.querySelector('.password-container');
 const passwordOutput = document.getElementById('password-output');
 const lengthRange = document.getElementById('length-range');
 const lengthOutput = document.getElementById('length-output');
@@ -57,4 +58,14 @@ mainForm.addEventListener('input', (e) => {
   const symbols = symbolsCheckbox.checked;
   const password = generatePassword(length, uppercase, numbers, symbols);
   passwordOutput.innerText = password;
+});
+
+passwordContainer.addEventListener('click', () => {
+  const currentPassword = passwordOutput.innerText;
+  passwordOutput.classList.toggle('copied');
+  passwordOutput.innerText = 'Copied to clipboard';
+  setTimeout(() => {
+    passwordOutput.innerText = currentPassword;
+    passwordOutput.classList.toggle('copied');
+  }, 2000);
 });
