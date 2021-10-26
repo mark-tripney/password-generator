@@ -26,9 +26,12 @@ body {
   width: 100%;
 }
 
-#password-output:hover {
-  transition: background-color 0.15s ease-in;
-  background-color: #f9f1f1;
+/* Prevent 'sticky hover' on touch devices */
+@media (hover: hover) and (pointer: fine) {
+  #password-output:hover {
+    transition: background-color 0.15s ease-in;
+    background-color: #f9f1f1;
+  }
 }
 
 #password-output {
