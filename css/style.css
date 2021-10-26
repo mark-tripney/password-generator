@@ -1,3 +1,11 @@
+:root {
+  /* Fonts */
+  --ff-mono: 'Roboto Mono', monospace;
+  --ff-body: 'Zen Kaku Gothic Antique', sans-serif;
+  --fw-bold: 700;
+  --fw-regular: 400;
+}
+
 *,
 *::before,
 *::after {
@@ -10,22 +18,40 @@ body {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  font-family: sans-serif;
+  font-family: var(--ff-body);
 }
 
-.password {
+#password-output {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  font-family: var(--ff-mono);
+  font-size: 1em;
+  font-weight: var(--fw-regular);
   border: 1px solid black;
-  padding: 1rem;
+  padding: 0 1em;
   border-radius: 5px;
   margin: 1em 0;
+  word-break: break-all;
+  height: 4rem;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 500px;
+  min-width: 337px;
   margin: 0 auto;
   border: 1px solid black;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 5px 5px 6px 0px #a9a9a9;
+}
+
+.heading {
+  font-weight: var(--fw-bold);
 }
 
 #main-form {
@@ -36,21 +62,34 @@ body {
 
 .length-input {
   display: flex;
-  column-gap: 2rem;
+  align-items: center;
 }
 
-#lengthNumber {
-  width: 4em;
+#length-range {
+  margin-left: 1rem;
+}
+
+#length-output {
+  font-weight: var(--fw-bold);
+  width: 1.5rem;
 }
 
 #generate-btn {
   width: fit-content;
   padding: 0.5em 1em;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-#generate-btn:hover,
-#generate-btn:focus {
+#generate-btn:hover {
   background: coral;
   color: white;
+}
+
+small {
+  margin-top: 1rem;
+  color: #a9a9a9;
+  font-weight: var(--fw-bold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }

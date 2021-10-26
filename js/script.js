@@ -1,6 +1,6 @@
 const passwordOutput = document.getElementById('password-output');
 const lengthRange = document.getElementById('length-range');
-const lengthNumber = document.getElementById('length-number');
+const lengthOutput = document.getElementById('length-output');
 const mainForm = document.getElementById('main-form');
 const uppercaseCheckbox = document.getElementById('uppercase-checkbox');
 const numbersCheckbox = document.getElementById('numbers-checkbox');
@@ -12,6 +12,7 @@ const generateArray = (lower, upper) => {
   return Array.from(Array(upper - lower + 1), (_, i) => i + lower);
 };
 
+// ASCII code ranges from https://theasciicode.com.ar/
 const lowerCaseCodes = generateArray(97, 122);
 const upperCaseCodes = generateArray(65, 90);
 const numberCodes = generateArray(48, 57);
@@ -20,15 +21,15 @@ const symbolCodes = generateArray(33, 47)
   .concat(generateArray(91, 96))
   .concat(generateArray(123, 126));
 
-// Synchronise both 'length' inputs (range and number)
+// Synchronise length input with length display
 const synchroniseLength = (e) => {
   const length = e.target.value;
-  lengthNumber.value = length;
   lengthRange.value = length;
+  // Pad lengths 1-9 with leading zero
+  lengthOutput.innerText = ('0' + length).slice(-2);
 };
 
 lengthRange.addEventListener('input', synchroniseLength);
-lengthNumber.addEventListener('input', synchroniseLength);
 
 const generatePassword = (length, uppercase, numbers, symbols) => {
   // Lower-case password is default; lower-case chars always included...
@@ -48,8 +49,8 @@ const generatePassword = (length, uppercase, numbers, symbols) => {
   return passwordChars.join('');
 };
 
-mainForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+// Event bubbling manages event listening on the various inputs
+mainForm.addEventListener('input', (e) => {
   const length = lengthRange.value;
   const uppercase = uppercaseCheckbox.checked;
   const numbers = numbersCheckbox.checked;

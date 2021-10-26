@@ -5,36 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Zen+Kaku+Gothic+Antique:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Password Generator</title>
   </head>
   <body>
     <div class="container">
-      <h1>Password Generator</h1>
+      <h1 class="heading">Password Generator</h1>
       <h2 id="password-output">password</h2>
       <form id="main-form">
         <div class="length-input">
-          <label for="lengthNumber">Length</label>
+          <label for="length-number">Length</label>
           <input type="range" min="1" max="64" value="32" id="length-range" />
         </div>
-        <input type="number" min="1" max="64" value="32" id="length-number" />
+        <span id="length-output">32</span>
 
-        <label for="uppercaseCheckbox">Include uppercase characters?</label>
+        <label for="uppercase-checkbox">Include uppercase characters?</label>
         <div class="uppercase-input">
           <input type="checkbox" id="uppercase-checkbox" />
         </div>
 
-        <label for="numbersCheckbox">Include numbers?</label>
+        <label for="numbers-checkbox">Include numbers?</label>
         <div class="numbers-input">
           <input type="checkbox" id="numbers-checkbox" />
         </div>
 
-        <label for="symbolsCheckbox">Include symbols?</label>
+        <label for="symbols-checkbox">Include symbols?</label>
         <div class="symbols-input">
           <input type="checkbox" id="symbols-checkbox" />
         </div>
-
-        <button type="submit" id="generate-btn">Generate password</button>
       </form>
+      <small>Click on the password window to copy.</small>
     </div>
     <script src="js/script.js"></script>
   </body>
