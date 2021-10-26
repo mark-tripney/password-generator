@@ -6,6 +6,10 @@ const mainForm = document.getElementById('main-form');
 const uppercaseCheckbox = document.getElementById('uppercase-checkbox');
 const numbersCheckbox = document.getElementById('numbers-checkbox');
 const symbolsCheckbox = document.getElementById('symbols-checkbox');
+const year = document.getElementById('year');
+
+const currentYear = new Date().getFullYear();
+year.innerText = currentYear;
 
 // Generate arrays of ASCII codes for each character category
 const generateArray = (lower, upper) => {
@@ -46,21 +50,19 @@ const generatePassword = (length, uppercase, numbers, symbols) => {
       )
     );
   }
-  console.log(passwordChars.join(''));
-  return passwordChars.join('');
+  passwordOutput.innerText = passwordChars.join('');
 };
 
 // Event bubbling manages event listening on the various inputs
-mainForm.addEventListener('input', (e) => {
+mainForm.addEventListener('input', () => {
   const length = lengthRange.value;
   const uppercase = uppercaseCheckbox.checked;
   const numbers = numbersCheckbox.checked;
   const symbols = symbolsCheckbox.checked;
-  const password = generatePassword(length, uppercase, numbers, symbols);
-  passwordOutput.innerText = password;
+  generatePassword(length, uppercase, numbers, symbols);
 });
 
-passwordContainer.addEventListener('click', () => {
+const copyToClipboard = () => {
   const currentPassword = passwordOutput.innerText;
   navigator.clipboard
     .writeText(currentPassword)
@@ -73,11 +75,16 @@ passwordContainer.addEventListener('click', () => {
       }, 2000);
     })
     .catch((err) => {
-      passwordOutput.classList.toggle('copy-action');
-      passwordOutput.innerText = "Can't access clipboard, not copied";
-      setTimeout(() => {
-        passwordOutput.innerText = currentPassword;
-        passwordOutput.classList.toggle('copy-action');
-      }, 2000);
+      console.log('Something went wrong', err);
     });
+};
+
+passwordContainer.addEventListener('click', copyToClipboard);
+passwordContainer.addEventListener('keydown', (e) => {
+  if (e.code === 'Enter' || e.code === 'Space') {
+    copyToClipboard();
+  }
 });
+
+// Generate 32-char, all-lower-case password on launch
+generatePassword(32, false, false, false);
