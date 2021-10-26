@@ -62,10 +62,22 @@ mainForm.addEventListener('input', (e) => {
 
 passwordContainer.addEventListener('click', () => {
   const currentPassword = passwordOutput.innerText;
-  passwordOutput.classList.toggle('copied');
-  passwordOutput.innerText = 'Copied to clipboard';
-  setTimeout(() => {
-    passwordOutput.innerText = currentPassword;
-    passwordOutput.classList.toggle('copied');
-  }, 2000);
+  navigator.clipboard
+    .writeText(currentPassword)
+    .then(() => {
+      passwordOutput.classList.toggle('copy-action');
+      passwordOutput.innerText = 'Copied to clipboard';
+      setTimeout(() => {
+        passwordOutput.innerText = currentPassword;
+        passwordOutput.classList.toggle('copy-action');
+      }, 2000);
+    })
+    .catch((err) => {
+      passwordOutput.classList.toggle('copy-action');
+      passwordOutput.innerText = "Can't access clipboard, not copied";
+      setTimeout(() => {
+        passwordOutput.innerText = currentPassword;
+        passwordOutput.classList.toggle('copy-action');
+      }, 2000);
+    });
 });

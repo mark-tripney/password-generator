@@ -46,7 +46,7 @@ body {
   cursor: pointer;
 }
 
-.copied {
+.copy-action {
   transition: background-color 0.25s ease-in-out;
   background-color: #f9f1f1;
   border: none;
