@@ -12,10 +12,9 @@ const currentYear = new Date().getFullYear();
 year.innerText = currentYear;
 
 // Generate arrays of ASCII codes for each character category
-const generateArray = (lower, upper) => {
-  // After length calc, map function returns index of element '_' + lower
-  return Array.from(Array(upper - lower + 1), (_, i) => i + lower);
-};
+// After length calc, map function returns index of element '_' + lower
+const generateArray = (lower, upper) =>
+  Array.from(Array(upper - lower + 1), (_, i) => i + lower);
 
 // ASCII code ranges from https://theasciicode.com.ar/
 const lowerCaseCodes = generateArray(97, 122);
@@ -31,7 +30,7 @@ const synchroniseLength = (e) => {
   const length = e.target.value;
   lengthRange.value = length;
   // Pad lengths 1-9 with leading zero
-  lengthOutput.innerText = ('0' + length).slice(-2);
+  lengthOutput.innerText = `0${length}`.slice(-2);
 };
 
 lengthRange.addEventListener('input', synchroniseLength);
@@ -43,7 +42,7 @@ const generatePassword = (length, uppercase, numbers, symbols) => {
   if (numbers) asciiCodes = asciiCodes.concat(numberCodes);
   if (symbols) asciiCodes = asciiCodes.concat(symbolCodes);
   const passwordChars = [];
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length; i += 1) {
     passwordChars.push(
       String.fromCharCode(
         asciiCodes[Math.floor(Math.random() * asciiCodes.length)]
