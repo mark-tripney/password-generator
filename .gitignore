@@ -1,1 +1,4 @@
 node_modules/
+.nova/
+.DS_Store
+config.codekit3

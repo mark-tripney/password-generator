@@ -13,8 +13,7 @@ year.innerText = currentYear;
 
 // Generate arrays of ASCII codes for each character category
 // After length calc, map function returns index of element '_' + lower
-const generateArray = (lower, upper) =>
-  Array.from(Array(upper - lower + 1), (_, i) => i + lower);
+const generateArray = (lower, upper) => Array.from(Array(upper - lower + 1), (_, i) => i + lower);
 
 // ASCII code ranges from https://theasciicode.com.ar/
 const lowerCaseCodes = generateArray(97, 122);
@@ -36,7 +35,7 @@ const synchroniseLength = (e) => {
 lengthRange.addEventListener('input', synchroniseLength);
 
 const generatePassword = (length, uppercase, numbers, symbols) => {
-  // Lower-case password is default; lower-case chars always included...
+  // Lower-case password is default; so, lower-case chars always included...
   let asciiCodes = lowerCaseCodes;
   if (uppercase) asciiCodes = asciiCodes.concat(upperCaseCodes);
   if (numbers) asciiCodes = asciiCodes.concat(numberCodes);
@@ -45,8 +44,8 @@ const generatePassword = (length, uppercase, numbers, symbols) => {
   for (let i = 0; i < length; i += 1) {
     passwordChars.push(
       String.fromCharCode(
-        asciiCodes[Math.floor(Math.random() * asciiCodes.length)]
-      )
+        asciiCodes[Math.floor(Math.random() * asciiCodes.length)],
+      ),
     );
   }
   passwordOutput.innerText = passwordChars.join('');
@@ -74,7 +73,7 @@ const copyToClipboard = () => {
       }, 2000);
     })
     .catch((err) => {
-      console.log('Something went wrong', err);
+      passwordOutput.innerText = `${err}`;
     });
 };
 
