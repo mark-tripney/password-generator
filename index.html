@@ -22,23 +22,30 @@
       <form id="main-form">
         <div class="length-input">
           <label for="length-range">Length</label>
-          <input type="range" min="1" max="64" value="32" id="length-range" />
+          <input
+            autocomplete="off"
+            type="range"
+            min="1"
+            max="64"
+            value="32"
+            id="length-range"
+          />
         </div>
         <span id="length-output">32</span>
 
         <label for="uppercase-checkbox">Include uppercase characters?</label>
         <div class="uppercase-input">
-          <input type="checkbox" id="uppercase-checkbox" />
+          <input autocomplete="off" type="checkbox" id="uppercase-checkbox" />
         </div>
 
         <label for="numbers-checkbox">Include numbers?</label>
         <div class="numbers-input">
-          <input type="checkbox" id="numbers-checkbox" />
+          <input autocomplete="off" type="checkbox" id="numbers-checkbox" />
         </div>
 
         <label for="symbols-checkbox">Include symbols?</label>
         <div class="symbols-input">
-          <input type="checkbox" id="symbols-checkbox" />
+          <input autocomplete="off" type="checkbox" id="symbols-checkbox" />
         </div>
       </form>
       <small>Click on the password window to copy.</small>

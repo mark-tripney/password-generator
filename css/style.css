@@ -1,7 +1,7 @@
 :root {
   /* Fonts */
-  --ff-mono: 'Roboto Mono', monospace;
-  --ff-body: 'Zen Kaku Gothic Antique', sans-serif;
+  --ff-mono: "Roboto Mono", monospace;
+  --ff-body: "Zen Kaku Gothic Antique", sans-serif;
   --fw-bold: 700;
   --fw-regular: 400;
 }
@@ -24,6 +24,14 @@ body {
 
 .password-container {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0 1rem;
+  height: 5rem;
+  margin: 1rem 0;
 }
 
 /* Prevent 'sticky hover' on touch devices */
@@ -35,22 +43,15 @@ body {
 }
 
 #password-output {
-  display: grid;
-  place-items: center;
   font-family: var(--ff-mono);
   font-size: 1em;
   font-weight: var(--fw-regular);
-  border: 1px solid black;
-  padding: 0 1em;
-  border-radius: 5px;
-  margin: 1em 0;
   word-break: break-all;
-  height: 5rem;
   cursor: pointer;
 }
 
 @media (min-width: 420px) {
-  #password-output {
+  .password-container {
     height: 4rem;
   }
 }
