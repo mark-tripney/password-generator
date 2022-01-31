@@ -34,6 +34,15 @@ body {
   margin: 1rem 0;
 }
 
+/* Prevent 'sticky hover' on touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .password-container:hover {
+    transition: background-color 0.15s ease-in;
+    background-color: #f9f1f1;
+    cursor: pointer;
+  }
+}
+
 #password-output {
   font-family: var(--ff-mono);
   font-size: 1em;
@@ -43,12 +52,9 @@ body {
   max-width: 100%;
 }
 
-/* Prevent 'sticky hover' on touch devices */
-@media (hover: hover) and (pointer: fine) {
-  .password-container:hover {
-    transition: background-color 0.15s ease-in;
-    background-color: #f9f1f1;
-    cursor: pointer;
+@media (hover: none) {
+  #password-output {
+    outline: 0;
   }
 }
 
@@ -62,6 +68,7 @@ body {
 .copy-action {
   transition: background-color 0.25s ease-in-out;
   background-color: #f9f1f1;
+  outline: 0;
 }
 
 .container {
