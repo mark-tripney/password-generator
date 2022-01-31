@@ -65,11 +65,11 @@ const copyToClipboard = () => {
   navigator.clipboard
     .writeText(currentPassword)
     .then(() => {
-      passwordOutput.classList.toggle('copy-action');
+      passwordContainer.classList.toggle('copy-action');
       passwordOutput.innerText = 'Copied to clipboard';
       setTimeout(() => {
         passwordOutput.innerText = currentPassword;
-        passwordOutput.classList.toggle('copy-action');
+        passwordContainer.classList.toggle('copy-action');
       }, 2000);
     })
     .catch((err) => {
